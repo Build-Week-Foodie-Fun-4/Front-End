@@ -114,7 +114,7 @@ const LoginRegister = props => {
           value={credentials.city}
           onChange={handleChange}
         />
-        <p>State</p>
+        <p>State:</p>
         <input
           type='text'
           name='state'
