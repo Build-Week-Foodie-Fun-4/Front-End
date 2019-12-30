@@ -5,6 +5,7 @@ export const StyledFormDiv = styled.div`
     width: 50%;
     margin: 0 auto;
     margin-top: 2%;
+    margin-bottom: 2%;
 `;
 
 export const StyledInput= styled.input`
@@ -24,4 +25,12 @@ export const StyledButton = styled.button`
     width: 50%;
     font-size: 1.5rem;
     border-radius: 5px;
+`;
+
+export const StyledLabel = styled.label`
+    display: block;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    text-align: left;
+    margin-left: 25%;
 `;
