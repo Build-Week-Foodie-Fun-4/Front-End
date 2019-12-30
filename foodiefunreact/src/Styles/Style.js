@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledFormDiv = styled.div`
-    border: 1px solid red;
+    // border: 1px solid red;
     width: 50%;
     margin: 0 auto;
     margin-top: 2%;
@@ -33,4 +33,9 @@ export const StyledLabel = styled.label`
     margin-top: 2%;
     text-align: left;
     margin-left: 25%;
+`;
+
+export const StyledH1 = styled.h1`
+    font-size: 2rem;
+    margin: 3%;
 `;

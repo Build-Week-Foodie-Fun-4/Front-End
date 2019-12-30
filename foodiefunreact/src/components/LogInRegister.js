@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from './axiosWithAuth';
-import {StyledFormDiv, StyledInput, StyledButton, StyledLabel} from '../Styles/Style';
+import {StyledFormDiv, StyledInput, StyledButton, StyledLabel, StyledH1} from '../Styles/Style';
 
 const LoginRegister = props => {
   const [ credentials, setCredentials ] = useState({
@@ -58,7 +58,7 @@ const LoginRegister = props => {
 
   return(
     <StyledFormDiv>
-      <h1>Already registered?  Log in here!</h1>
+      <StyledH1>Already registered?  Log in here!</StyledH1>
       <form onSubmit={login}>
         <StyledLabel htmlFor='username'>Username:</StyledLabel>
         <StyledInput
@@ -83,7 +83,7 @@ const LoginRegister = props => {
         {/* {isFetching && 'logging in...'} */}
       </form>
 
-      <h1>New user?  Register with your info here!</h1>
+      <StyledH1>New user?  Register with your info here!</StyledH1>
       <form onSubmit={register}>
         <StyledLabel htmlFor='regUserName'>Username:</StyledLabel>
         <StyledInput
