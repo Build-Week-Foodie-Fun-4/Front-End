@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from './axiosWithAuth';
+import {StyledFormDiv, StyledInput, StyledButton} from '../Styles/Style';
 
 const LoginRegister = props => {
   const [ credentials, setCredentials ] = useState({
@@ -56,11 +57,11 @@ const LoginRegister = props => {
   };
 
   return(
-    <div>
+    <StyledFormDiv>
       <h1>Already registered?  Log in here!</h1>
       <form onSubmit={login}>
         <p>Username:</p>
-        <input
+        <StyledInput
           type='text'
           name='username'
           placeholder='User Name'
@@ -68,7 +69,7 @@ const LoginRegister = props => {
           onChange={handleChange}
         />
         <p>Password:</p>
-        <input
+        <StyledInput
           type='password'
           name='password'
           placeholder='Password'
@@ -76,14 +77,14 @@ const LoginRegister = props => {
           onChange={handleChange}
         />
         <br></br>
-        <button>Log In</button>
+        <StyledButton>Log In</StyledButton>
         {/* {isFetching && 'logging in...'} */}
       </form>
 
       <h1>New user?  Register with your info here!</h1>
       <form onSubmit={register}>
         <p>Username:</p>
-        <input
+        <StyledInput
           name='username'
           type='text'
           placeholder='User Name'
@@ -91,7 +92,7 @@ const LoginRegister = props => {
           onChange={handleChange}
         />
         <p>Password:</p>
-        <input
+        <StyledInput
           type='password'
           name='password'
           placeholder='Password'
@@ -99,7 +100,7 @@ const LoginRegister = props => {
           onChange={handleChange}
         />
         <p>Email:</p>
-        <input
+        <StyledInput
           type='email'
           name='email'
           placeholder='Email'
@@ -107,7 +108,7 @@ const LoginRegister = props => {
           onChange={handleChange}
         />
         <p>City:</p>
-        <input
+        <StyledInput
           type='text'
           name='city'
           placeholder='City'
@@ -115,7 +116,7 @@ const LoginRegister = props => {
           onChange={handleChange}
         />
         <p>State:</p>
-        <input
+        <StyledInput
           type='text'
           name='state'
           placeholder='State'
@@ -123,10 +124,10 @@ const LoginRegister = props => {
           onChange={handleChange}
         />
         <br></br>
-        <button>Register</button>
+        <StyledButton>Register</StyledButton>
         {/* {isFetching && 'registering...'} */}
       </form>
-    </div>
+    </StyledFormDiv>
   )
 }
 
