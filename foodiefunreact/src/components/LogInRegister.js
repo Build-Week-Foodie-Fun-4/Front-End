@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axiosWithAuth from './axiosWithAuth';
+import {StyledFormDiv, StyledInput, StyledButton, StyledLabel, StyledH1} from '../Styles/Style';
 
 const LoginRegister = props => {
   const [ credentials, setCredentials ] = useState({
@@ -56,19 +57,21 @@ const LoginRegister = props => {
   };
 
   return(
-    <div>
-      <h1>Already registered?  Log in here!</h1>
+    <StyledFormDiv>
+      <StyledH1>Already registered?  Log in here!</StyledH1>
       <form onSubmit={login}>
-        <p>Username:</p>
-        <input
+        <StyledLabel htmlFor='username'>Username:</StyledLabel>
+        <StyledInput
+          id='username'
           type='text'
           name='username'
           placeholder='User Name'
           value={credentials.username}
           onChange={handleChange}
         />
-        <p>Password:</p>
-        <input
+        <StyledLabel htmlFor='password'>Password:</StyledLabel>
+        <StyledInput
+          id='password'
           type='password'
           name='password'
           placeholder='Password'
@@ -76,46 +79,51 @@ const LoginRegister = props => {
           onChange={handleChange}
         />
         <br></br>
-        <button>Log In</button>
+        <StyledButton>Log In</StyledButton>
         {/* {isFetching && 'logging in...'} */}
       </form>
 
-      <h1>New user?  Register with your info here!</h1>
+      <StyledH1>New user?  Register with your info here!</StyledH1>
       <form onSubmit={register}>
-        <p>Username:</p>
-        <input
+        <StyledLabel htmlFor='regUserName'>Username:</StyledLabel>
+        <StyledInput
+          id='regUserName'
           name='username'
           type='text'
           placeholder='User Name'
           value={credentials.username}
           onChange={handleChange}
         />
-        <p>Password:</p>
-        <input
+        <StyledLabel htmlFor='regPassword'>Password:</StyledLabel>
+        <StyledInput
+          id='regPassword'
           type='password'
           name='password'
           placeholder='Password'
           value={credentials.password}
           onChange={handleChange}
         />
-        <p>Email:</p>
-        <input
+        <StyledLabel htmlFor='regEmail'>Email:</StyledLabel>
+        <StyledInput
+          id='regEmail'
           type='email'
           name='email'
           placeholder='Email'
           value={credentials.email}
           onChange={handleChange}
         />
-        <p>City:</p>
-        <input
+        <StyledLabel htmlFor='city'>City:</StyledLabel>
+        <StyledInput
+          id='city'
           type='text'
           name='city'
           placeholder='City'
           value={credentials.city}
           onChange={handleChange}
         />
-        <p>State:</p>
-        <input
+        <StyledLabel htmlFor='state'>State:</StyledLabel>
+        <StyledInput
+          id='state'
           type='text'
           name='state'
           placeholder='State'
@@ -123,10 +131,10 @@ const LoginRegister = props => {
           onChange={handleChange}
         />
         <br></br>
-        <button>Register</button>
+        <StyledButton>Register</StyledButton>
         {/* {isFetching && 'registering...'} */}
       </form>
-    </div>
+    </StyledFormDiv>
   )
 }
 
