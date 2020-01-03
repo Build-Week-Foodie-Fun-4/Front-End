@@ -26,7 +26,7 @@ const LoginRegister = props => {
     setIsFetching(true);
 
     axiosWithAuth()
-      .post('login', credentials)
+      .post('auth/login', credentials)
       .then(res => {
         localStorage.setItem('token', res.data.payload);
         setIsFetching(false);
@@ -40,7 +40,7 @@ const LoginRegister = props => {
     setIsFetching(true);
 
     axiosWithAuth()
-      .post('register', credentials)
+      .post('auth/register', credentials)
       .then(res => {
         localStorage.setItem('token', res.data.payload);
         setIsFetching(false);
@@ -80,7 +80,6 @@ const LoginRegister = props => {
         />
         <br></br>
         <StyledButton>Log In</StyledButton>
-        {/* {isFetching && 'logging in...'} */}
       </form>
 
       <StyledH1>New user?  Register with your info here!</StyledH1>
@@ -132,7 +131,6 @@ const LoginRegister = props => {
         />
         <br></br>
         <StyledButton>Register</StyledButton>
-        {/* {isFetching && 'registering...'} */}
       </form>
     </StyledFormDiv>
   )
