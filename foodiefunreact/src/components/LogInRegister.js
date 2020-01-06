@@ -8,7 +8,8 @@ const LoginRegister = props => {
     password: '',
     email: '',
     city: '',
-    state: ''
+    state: '',
+    user_id: ''
   });
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
   const [ isFetching, setIsFetching ] = useState(false);
@@ -31,7 +32,7 @@ const LoginRegister = props => {
         localStorage.setItem('token', res.data.token);
         console.log(res);
         setIsFetching(false);
-        props.history.push('/protected')
+        props.history.push('/dashboard')
       })
       .catch(error => console.log(error.response))
   }
@@ -43,9 +44,9 @@ const LoginRegister = props => {
     axiosWithAuth()
       .post('auth/register', credentials)
       .then(res => {
-        localStorage.setItem('token', res.data.payload);
+        localStorage.setItem('token', res.data.token);
         setIsFetching(false);
-        props.history.push('/protected');
+        props.history.push('/dashboard');
       })
       .catch(error => console.log(error.response))
   }
