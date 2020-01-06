@@ -37,10 +37,12 @@ export const StyledLabel = styled.label`
     text-align: left;
     margin-left: 25%;
     font-family: 'Roboto', sans-serif;
+    color: white;
 `;
 
-export const StyledH1 = styled.h1`
+export const StyledH1 = styled.p`
     font-size: 2rem;
     margin: 3%;
     font-family: 'Monoton', cursive;
+    color: white;
 `;
