@@ -28,6 +28,10 @@ export const StyledButton = styled.button`
     font-size: 1.5rem;
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
+    &:hover
+    {
+        background: gold;
+    }
 `;
 
 export const StyledLabel = styled.label`
