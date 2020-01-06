@@ -3,14 +3,20 @@ import './App.css';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import LogInRegister from './components/LogInRegister';
+import UserDashboard from './components/UserDashboard';
 import PrivateRoute from './components/PrivateRoute';
+import AddNewRestaurant from './components/AddNewRestaurant';
 
 function App() {
   return (
-    // Temporary return.  Protected routes to be implemented asap, LogInRegister is rendering here to display for styling purposes.
-    <div className="App">
-      <LogInRegister />
-    </div>
+    <Router>
+      <div className="App">
+        <PrivateRoute exact path='/dashboard' component={UserDashboard} />
+        <PrivateRoute exact path='/addnewrestaurant' component={AddNewRestaurant} />
+        <Route path='/login' component={LogInRegister} />
+        <Route exact path='/' component={LogInRegister} />
+      </div>
+    </Router>
   );
 }
 

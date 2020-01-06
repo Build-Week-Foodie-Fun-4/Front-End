@@ -21,7 +21,7 @@ const AddNewRestaurant = props => {
     event.preventDefault();
 
     axiosWithAuth()
-    .post('newRestaurant', restaurantInfo)
+    .post(`user/restaurants`, restaurantInfo)
     .then(res => {
       props.history.push('/restaurantPage')
     })
