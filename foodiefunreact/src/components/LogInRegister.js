@@ -28,7 +28,8 @@ const LoginRegister = props => {
     axiosWithAuth()
       .post('auth/login', credentials)
       .then(res => {
-        localStorage.setItem('token', res.data.payload);
+        localStorage.setItem('token', res.data.token);
+        console.log(res);
         setIsFetching(false);
         props.history.push('/protected')
       })
