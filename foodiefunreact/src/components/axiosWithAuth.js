@@ -4,7 +4,7 @@ const axiosWithAuth = () => {
   const token = localStorage.getItem('token');
   
   return axios.create({
-    baseURL: 'https://foodie-fun-be.herokuapp.com/',
+    baseURL: 'https://cors-anywhere.herokuapp.com/https://foodie-fun-be.herokuapp.com/',
     headers: {
       'Content-type': 'application/json',
       'Authorization': `${token}`

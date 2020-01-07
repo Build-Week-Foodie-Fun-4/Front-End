@@ -10,7 +10,7 @@ const UserDashboard = props => {
     <div>
       <StyledH1>Welcome to the User Dashboard!</StyledH1>
       <NavLink exact to='/addnewrestaurant'><StyledButton>Add a new restaurant</StyledButton></NavLink>
-
+      <NavLink exact to='/restaurantlist'><StyledButton>See your list of restaurants</StyledButton></NavLink>
     </div>
   )
 }
