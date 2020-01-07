@@ -25,7 +25,7 @@ const AddNewRestaurant = props => {
     .post(`user/5/restaurants`, restaurantInfo)
     .then(res => {
       console.log('Response in AddNewRestaurant: ', res)
-      // props.history.push('/restaurantPage')
+      props.history.push('/dashboard')
     })
     .catch(error => console.log(error.response))
   }
