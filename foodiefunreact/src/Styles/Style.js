@@ -50,3 +50,14 @@ export const StyledH1 = styled.p`
     font-family: 'Monoton', cursive;
     color: white;
 `;
+
+export const StyledCard = styled.div`
+    border: 1px solid red;
+    width: 30%;
+`;
+
+export const StyledContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+`;
