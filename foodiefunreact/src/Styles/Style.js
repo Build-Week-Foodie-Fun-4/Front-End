@@ -52,12 +52,24 @@ export const StyledH1 = styled.p`
 `;
 
 export const StyledCard = styled.div`
-    border: 1px solid red;
-    width: 30%;
+    border: 5px dashed gray;
+    width: 20%;
+    background: lightgray;
+    &:hover
+    {
+        background: gold;
+        cursor: pointer;
+    }
 `;
 
 export const StyledContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+`;
+
+export const StyledText = styled.p`
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 1.5rem;
 `;
