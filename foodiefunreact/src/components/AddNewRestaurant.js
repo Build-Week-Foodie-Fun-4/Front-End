@@ -4,26 +4,28 @@ import {StyledFormDiv, StyledInput, StyledButton, StyledLabel, StyledH1} from '.
 
 const AddNewRestaurant = props => {
   const [ restaurantInfo, setRestaurantInfo ] = useState({
-    restaurantName: '',
-    restaurantCuisine: '',
-    restaurantStreet: '',
-    restaurantCity: '',
-    restaurantState: '',
-    restaurantZip: '',
-    restaurantPhone: '',
-    restaurantURL: '',
-    restaurantHours: '',
-    restaurantOverallRating: '',
-    restaurantPhoto: ''
+    user_id: 5,
+    name: '',
+    cuisine: '',
+    street_address: '',
+    city: '',
+    state: '',
+    zip: '',
+    // restaurantPhone: '',
+    // restaurantURL: '',
+    // restaurantHours: '',
+    // restaurantOverallRating: '',
+    // restaurantPhoto: ''
   });
 
   const submitNewRestaurant = event => {
     event.preventDefault();
 
     axiosWithAuth()
-    .post(`user/restaurants`, restaurantInfo)
+    .post(`user/5/restaurants`, restaurantInfo)
     .then(res => {
-      props.history.push('/restaurantPage')
+      console.log('Response in AddNewRestaurant: ', res)
+      props.history.push('/dashboard')
     })
     .catch(error => console.log(error.response))
   }
@@ -39,61 +41,61 @@ const AddNewRestaurant = props => {
     <StyledFormDiv>
       <StyledH1>Add a New Restaurant!</StyledH1>
       <form onSubmit={submitNewRestaurant}>
-        <StyledLabel htmlFor='restaurantName'>Restaurant Name:</StyledLabel>
+        <StyledLabel htmlFor='name'>Restaurant Name:</StyledLabel>
         <StyledInput 
-          id='restaurantName'
+          id='name'
           type='text'
-          name='restaurantName'
+          name='name'
           placeholder='Restaurant Name'
-          value={restaurantInfo.restaurantName}
+          value={restaurantInfo.name}
           onChange={handleChange}
         />
-        <StyledLabel htmlFor='restaurantCuisine'>Cuisine:</StyledLabel>
+        <StyledLabel htmlFor='cuisine'>Cuisine:</StyledLabel>
         <StyledInput 
-          id='restaurantCuisine'
+          id='cuisine'
           type='text'
-          name='restaurantCuisine'
+          name='cuisine'
           placeholder='Cuisine Type'
-          value={restaurantInfo.restaurantCuisine}
+          value={restaurantInfo.cuisine}
           onChange={handleChange}
         />
-        <StyledLabel htmlFor='restaurantStreet'>Street Address:</StyledLabel>
+        <StyledLabel htmlFor='street_address'>Street Address:</StyledLabel>
         <StyledInput 
-          id='restaurantStreet'
+          id='street_address'
           type='text'
-          name='restaurantStreet'
+          name='street_address'
           placeholder='Street Address'
-          value={restaurantInfo.restaurantStreet}
+          value={restaurantInfo.street_address}
           onChange={handleChange}
         />
-        <StyledLabel htmlFor='restaurantCity'>City:</StyledLabel>
+        <StyledLabel htmlFor='city'>City:</StyledLabel>
         <StyledInput 
-          id='restaurantCity'
+          id='city'
           type='text'
-          name='restaurantCity'
+          name='city'
           placeholder='City'
-          value={restaurantInfo.restaurantCity}
+          value={restaurantInfo.city}
           onChange={handleChange}
         />
-        <StyledLabel htmlFor='restaurantState'>State:</StyledLabel>
+        <StyledLabel htmlFor='state'>State:</StyledLabel>
         <StyledInput 
-          id='restaurantState'
+          id='state'
           type='text'
-          name='restaurantState'
+          name='state'
           placeholder='State'
-          value={restaurantInfo.restaurantState}
+          value={restaurantInfo.state}
           onChange={handleChange}
         />
-        <StyledLabel htmlFor='restaurantZip'>Zip Code:</StyledLabel>
+        <StyledLabel htmlFor='zip'>Zip Code:</StyledLabel>
         <StyledInput 
-          id='restaurantZip'
+          id='zip'
           type='text'
-          name='restaurantZip'
+          name='zip'
           placeholder='Zip'
-          value={restaurantInfo.restaurantZip}
+          value={restaurantInfo.zip}
           onChange={handleChange}
         />
-        <StyledLabel htmlFor='restaurantPhone'>Phone Number:</StyledLabel>
+        {/* <StyledLabel htmlFor='restaurantPhone'>Phone Number:</StyledLabel>
         <StyledInput 
           id='restaurantPhone'
           type='text'
@@ -137,7 +139,7 @@ const AddNewRestaurant = props => {
           placeholder='Photo'
           value={restaurantInfo.restaurantPhoto}
           onChange={handleChange}
-        />
+        /> */}
         <br></br>
         <StyledButton>Submit New Restaurant Info</StyledButton>
       </form>

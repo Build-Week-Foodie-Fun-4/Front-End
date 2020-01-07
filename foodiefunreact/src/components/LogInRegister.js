@@ -9,7 +9,7 @@ const LoginRegister = props => {
     email: '',
     city: '',
     state: '',
-    user_id: ''
+    // user_id: ''
   });
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
   const [ isFetching, setIsFetching ] = useState(false);
