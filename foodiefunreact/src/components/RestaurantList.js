@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyledH1 } from '../Styles/Style';
+import { StyledH1, StyledText, StyledCard, StyledContainer } from '../Styles/Style';
 
 import axiosWithAuth from './axiosWithAuth';
 
@@ -23,32 +23,34 @@ const RestaurantList = () => {
     <div>
       <StyledH1>Your Restaurants:</StyledH1>
 
-      <div className='restaurantCard'>
-        <StyledH1>Name: Adam's Burgers</StyledH1>
-        <StyledH1>Cuisine: Burgers</StyledH1>
-        <StyledH1>Address: 1000 Main St.</StyledH1>
-        <StyledH1>City: Columbia</StyledH1>
-        <StyledH1>State: Missouri</StyledH1>
-        <StyledH1>Zip: 65203</StyledH1>
-      </div>
+      <StyledContainer className='container'>
+      <StyledCard className='restaurantCard'>
+        <StyledText>Name: Adam's Burgers</StyledText>
+        <StyledText>Cuisine: Burgers</StyledText>
+        {/* <StyledText>Address: 1000 Main St.</StyledText> */}
+        <StyledText>City: Columbia</StyledText>
+        <StyledText>State: Missouri</StyledText>
+        {/* <StyledText>Zip: 65203</StyledText> */}
+      </StyledCard>
 
-      <div className='restaurantCard'>
-        <StyledH1>Name: Adam's Tacos</StyledH1>
-        <StyledH1>Cuisine: Tacos</StyledH1>
-        <StyledH1>Address: 1001 Main St.</StyledH1>
-        <StyledH1>City: Columbia</StyledH1>
-        <StyledH1>State: Missouri</StyledH1>
-        <StyledH1>Zip: 65203</StyledH1>
-      </div>
+      <StyledCard className='restaurantCard'>
+        <StyledText>Name: Adam's Tacos</StyledText>
+        <StyledText>Cuisine: Tacos</StyledText>
+        {/* <StyledText>Address: 1001 Main St.</StyledText> */}
+        <StyledText>City: Columbia</StyledText>
+        <StyledText>State: Missouri</StyledText>
+        {/* <StyledText>Zip: 65203</StyledText> */}
+      </StyledCard>
 
-      <div className='restaurantCard'>
-        <StyledH1>Name: Adam's Pizza</StyledH1>
-        <StyledH1>Cuisine: Pizza</StyledH1>
-        <StyledH1>Address: 1002 Main St.</StyledH1>
-        <StyledH1>City: Columbia</StyledH1>
-        <StyledH1>State: Missouri</StyledH1>
-        <StyledH1>Zip: 65203</StyledH1>
-      </div>
+      <StyledCard className='restaurantCard'>
+        <StyledText>Name: Adam's Pizza</StyledText>
+        <StyledText>Cuisine: Pizza</StyledText>
+        {/* <StyledText>Address: 1002 Main St.</StyledText> */}
+        <StyledText>City: Columbia</StyledText>
+        <StyledText>State: Missouri</StyledText>
+        {/* <StyledText>Zip: 65203</StyledText> */}
+      </StyledCard>
+      </StyledContainer>
       
     </div>
   )
