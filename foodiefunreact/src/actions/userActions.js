@@ -1,0 +1,1 @@
+// put userID and loggedIn into redux with action creator and reducer

@@ -2,15 +2,21 @@ import React, { useState, useEffect } from 'react';
 import axiosWithAuth from './axiosWithAuth';
 import {StyledFormDiv, StyledInput, StyledButton, StyledLabel, StyledH1} from '../Styles/Style';
 
-const LoginRegister = props => {
+import { connect } from 'react-redux';
+
+const LogInRegister = props => {
   const [ credentials, setCredentials ] = useState({
     username: '',
     password: '',
     email: '',
     city: '',
     state: '',
-    // user_id: ''
   });
+
+  const [ userID, setUserID ] = useState({
+    userID: ''
+  });
+
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
   const [ isFetching, setIsFetching ] = useState(false);
 
@@ -30,7 +36,8 @@ const LoginRegister = props => {
       .post('auth/login', credentials)
       .then(res => {
         localStorage.setItem('token', res.data.token);
-        console.log(res);
+        console.log('user_id in LogInRegister: ', res.data.user_id);
+        setUserID(res.data.id);
         setIsFetching(false);
         props.history.push('/dashboard')
       })
@@ -138,4 +145,13 @@ const LoginRegister = props => {
   )
 }
 
-export default LoginRegister;
+// const mapStateToProps = state => {
+//   return{
+//     userID: state.userID
+//   };
+// };
+
+// export default connect(
+//   mapStateToProps
+// )(LogInRegister);
+export default LogInRegister;

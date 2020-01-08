@@ -4,7 +4,7 @@ import { StyledH1, StyledText, StyledCard, StyledContainer } from '../Styles/Sty
 
 import axiosWithAuth from './axiosWithAuth';
 
-const RestaurantList = () => {
+const RestaurantList = (props) => {
   const getRestaurants = () => {
     // event.preventDefault();
 
@@ -56,4 +56,14 @@ const RestaurantList = () => {
   )
 }
 
+// const mapStateToProps = state => {
+//   return{
+//     userID: state.userID
+//   };
+// };
+
 export default RestaurantList;
+
+// export default connect(
+//   mapStateToProps
+// )(RestaurantList);
