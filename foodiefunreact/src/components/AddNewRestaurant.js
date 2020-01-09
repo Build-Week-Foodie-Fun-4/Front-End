@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import axiosWithAuth from './axiosWithAuth';
+// import axiosWithAuth from './axiosWithAuth';
 import {StyledFormDiv, StyledInput, StyledButton, StyledLabel, StyledH1} from '../Styles/Style';
+
+import { connect } from 'react-redux';
+import { addRestaurant } from './../actions';
 
 const AddNewRestaurant = props => {
   const [ restaurantInfo, setRestaurantInfo ] = useState({
@@ -18,29 +21,22 @@ const AddNewRestaurant = props => {
     // restaurantPhoto: ''
   });
 
-  const submitNewRestaurant = event => {
-    event.preventDefault();
-
-    axiosWithAuth()
-    .post(`user/3/restaurants`, restaurantInfo)
-    .then(res => {
-      console.log('Response in AddNewRestaurant: ', res)
-      props.history.push('/dashboard')
-    })
-    .catch(error => console.log(error.response))
-  }
-
   const handleChange = event => {
     setRestaurantInfo({
       ...restaurantInfo,
       [event.target.name]: event.target.value
-    })
+    });
   };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    props.addRestaurant(restaurantInfo, props.history);
+  }
 
   return(
     <StyledFormDiv>
       <StyledH1>Add a New Restaurant!</StyledH1>
-      <form onSubmit={submitNewRestaurant}>
+      <form onSubmit={handleSubmit}>
         <StyledLabel htmlFor='restaurant_name'>Restaurant Name:</StyledLabel>
         <StyledInput 
           id='restaurant_name'
@@ -147,4 +143,6 @@ const AddNewRestaurant = props => {
   )
 }
 
-export default AddNewRestaurant;
+// export default AddNewRestaurant;
+
+export default connect(null, { addRestaurant })(AddNewRestaurant)

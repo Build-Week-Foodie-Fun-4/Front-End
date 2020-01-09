@@ -1,25 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 
-import { StyledH1, StyledText, StyledCard, StyledContainer } from '../Styles/Style';
+import { StyledH1, StyledText, StyledCard, StyledContainer, StyledButton } from '../Styles/Style';
 
-import axiosWithAuth from './axiosWithAuth';
-
-import { getRestaurants } from '../actions/index.js';
+import { getRestaurants } from './../actions/restaurantActions';
 
 const RestaurantList = (props) => {
-  // const getRestaurants = () => {
-  //   // event.preventDefault();
-
-  //   axiosWithAuth()
-  //     .get('user/3/restaurants')
-  //     .then(res => {
-  //       console.log('response to get request in RestaurantList: ', res)
-  //     })
-  //     .catch(error => console.log(error.response))
-  // }
-
-  getRestaurants();
-
+  useEffect(() => {
+    console.log('useEffect fires')
+    props.getRestaurants();
+  }, []);
+  console.log('props in RestaurantList: ', props)
+  
   return(
     <div>
       <StyledH1>Your Restaurants:</StyledH1>
@@ -35,14 +27,14 @@ const RestaurantList = (props) => {
   )
 }
 
-// const mapStateToProps = state => {
-//   return{
-//     userID: state.userID
-//   };
-// };
+// export default RestaurantList;
 
-export default RestaurantList;
+const mapStateToProps = state => {
+  return {
+    restaurants: state,
+  }
+}
 
-// export default connect(
-//   mapStateToProps
-// )(RestaurantList);
+export default connect(mapStateToProps, {
+  getRestaurants
+})(RestaurantList);

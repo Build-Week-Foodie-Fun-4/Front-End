@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axiosWithAuth from './axiosWithAuth';
+// import axiosWithAuth from './axiosWithAuth';
 import {StyledFormDiv, StyledInput, StyledButton, StyledLabel, StyledH1} from '../Styles/Style';
 
 import { connect } from 'react-redux';
+import { login, register } from './../actions';
 
 const LogInRegister = props => {
   const [ credentials, setCredentials ] = useState({
@@ -13,62 +14,27 @@ const LogInRegister = props => {
     state: '',
   });
 
-  const [ userID, setUserID ] = useState({
-    userID: ''
-  });
-
-  const [ isLoggedIn, setIsLoggedIn ] = useState(false);
-  const [ isFetching, setIsFetching ] = useState(false);
-
-  useEffect(() => {
-    if(sessionStorage.getItem('token')) {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
-  }, [])
-
-  const login = event => {
-    event.preventDefault();
-    setIsFetching(true);
-
-    axiosWithAuth()
-      .post('auth/login', credentials)
-      .then(res => {
-        localStorage.setItem('token', res.data.token);
-        console.log('user_id in LogInRegister: ', res.data.user_id);
-        setUserID(res.data.user_id);
-        setIsFetching(false);
-        props.history.push('/dashboard')
-      })
-      .catch(error => console.log(error.response))
-  }
-
-  const register = event => {
-    event.preventDefault();
-    setIsFetching(true);
-
-    axiosWithAuth()
-      .post('auth/register', credentials)
-      .then(res => {
-        localStorage.setItem('token', res.data.token);
-        setIsFetching(false);
-        props.history.push('/dashboard');
-      })
-      .catch(error => console.log(error.response))
-  }
-
   const handleChange = event => {
     setCredentials({
       ...credentials,
       [event.target.name]: event.target.value
-    })
+    });
   };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    props.login(credentials, props.history);
+  }
+
+  const handleRegister = event => {
+    event.preventDefault();
+    props.register(credentials, props.history)
+  }
 
   return(
     <StyledFormDiv>
       <StyledH1>Already registered?  Log in here!</StyledH1>
-      <form onSubmit={login}>
+      <form onSubmit={handleSubmit}>
         <StyledLabel htmlFor='username'>Username:</StyledLabel>
         <StyledInput
           id='username'
@@ -92,7 +58,7 @@ const LogInRegister = props => {
       </form>
 
       <StyledH1>New user?  Register with your info here!</StyledH1>
-      <form onSubmit={register}>
+      <form onSubmit={handleRegister}>
         <StyledLabel htmlFor='regUserName'>Username:</StyledLabel>
         <StyledInput
           id='regUserName'
@@ -145,13 +111,4 @@ const LogInRegister = props => {
   )
 }
 
-// const mapStateToProps = state => {
-//   return{
-//     userID: state.userID
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps
-// )(LogInRegister);
-export default LogInRegister;
+export default connect(null, { login, register })(LogInRegister);

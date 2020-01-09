@@ -1,7 +1,14 @@
 export {
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  REGISTER_SUCCESS,
+  REGISTER_FAIL,
   FETCH_RESTAURANT_START,
   FETCH_RESTAURANT_SUCCESS,
   FETCH_RESTAURANT_FAILURE,
+  ADD_RESTAURANT_START,
+  ADD_RESTAURANT_SUCCESS,
+  ADD_RESTAURANT_FAILURE
 } from './types';
 
 export {
@@ -11,4 +18,5 @@ export {
   ADD_MENUITEM
 } from './menuItemActions'
 
-export { getRestaurants } from './restaurantActions';
+export { login, register } from './userActions';
+export { getRestaurants, addRestaurant } from './restaurantActions';
