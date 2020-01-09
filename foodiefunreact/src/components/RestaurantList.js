@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { StyledH1, StyledText, StyledCard, StyledContainer } from '../Styles/Style';
+import { StyledH1, StyledText, StyledCard, StyledContainer, StyledButton } from '../Styles/Style';
 
-import { getRestaurants } from '../actions';
+import { getRestaurants } from './../actions/restaurantActions';
 
 const RestaurantList = (props) => {
   useEffect(() => {
+    console.log('useEffect fires')
     props.getRestaurants();
   }, []);
+  console.log('props in RestaurantList: ', props)
   
   return(
     <div>
@@ -29,7 +31,7 @@ const RestaurantList = (props) => {
 
 const mapStateToProps = state => {
   return {
-    restaurants: state.restaurants.restaurants,
+    restaurants: state,
   }
 }
 

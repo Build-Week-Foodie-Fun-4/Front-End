@@ -8,7 +8,7 @@ import {
 } from '../actions';
 
 const initialState = {
-  restaurants: null,
+  restaurants: [],
   isFetching: false,
   error: ''
 };
