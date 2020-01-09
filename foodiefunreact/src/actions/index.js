@@ -6,6 +6,9 @@ export {
   FETCH_RESTAURANT_START,
   FETCH_RESTAURANT_SUCCESS,
   FETCH_RESTAURANT_FAILURE,
+  ADD_RESTAURANT_START,
+  ADD_RESTAURANT_SUCCESS,
+  ADD_RESTAURANT_FAILURE
 } from './types';
 
 export {
@@ -16,4 +19,4 @@ export {
 } from './menuItemActions'
 
 export { login, register } from './userActions';
-export { getRestaurants } from './restaurantActions';
+export { getRestaurants, addRestaurant } from './restaurantActions';

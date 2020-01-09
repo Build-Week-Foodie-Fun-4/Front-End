@@ -1,71 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import axiosWithAuth from './axiosWithAuth';
+// import axiosWithAuth from './axiosWithAuth';
 import {StyledFormDiv, StyledInput, StyledButton, StyledLabel, StyledH1} from '../Styles/Style';
 
 import { connect } from 'react-redux';
 import { login, register } from './../actions';
 
 const LogInRegister = props => {
-  // const [ credentials, setCredentials ] = useState({
-  //   username: '',
-  //   password: '',
-  //   email: '',
-  //   city: '',
-  //   state: '',
-  // });
-
-  // const [ userID, setUserID ] = useState({
-  //   userID: ''
-  // });
-
-  // const [ isLoggedIn, setIsLoggedIn ] = useState(false);
-  // const [ isFetching, setIsFetching ] = useState(false);
-
-  // useEffect(() => {
-  //   if(sessionStorage.getItem('token')) {
-  //     setIsLoggedIn(true);
-  //   } else {
-  //     setIsLoggedIn(false);
-  //   }
-  // }, [])
-
-  // const login = event => {
-  //   event.preventDefault();
-  //   setIsFetching(true);
-
-  //   axiosWithAuth()
-  //     .post('auth/login', credentials)
-  //     .then(res => {
-  //       localStorage.setItem('token', res.data.token);
-  //       console.log('user_id in LogInRegister: ', res.data.user_id);
-  //       setUserID(res.data.user_id);
-  //       setIsFetching(false);
-  //       props.history.push('/dashboard')
-  //     })
-  //     .catch(error => console.log(error.response))
-  // }
-
-  // const register = event => {
-  //   event.preventDefault();
-  //   setIsFetching(true);
-
-  //   axiosWithAuth()
-  //     .post('auth/register', credentials)
-  //     .then(res => {
-  //       localStorage.setItem('token', res.data.token);
-  //       setIsFetching(false);
-  //       props.history.push('/dashboard');
-  //     })
-  //     .catch(error => console.log(error.response))
-  // }
-
-  // const handleChange = event => {
-  //   setCredentials({
-  //     ...credentials,
-  //     [event.target.name]: event.target.value
-  //   })
-  // };
-
   const [ credentials, setCredentials ] = useState({
     username: '',
     password: '',
@@ -171,13 +111,4 @@ const LogInRegister = props => {
   )
 }
 
-// const mapStateToProps = state => {
-//   return{
-//     userID: state.userID
-//   };
-// };
-
-// export default connect(
-//   mapStateToProps
-// )(LogInRegister);
 export default connect(null, { login, register })(LogInRegister);

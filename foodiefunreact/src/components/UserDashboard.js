@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 import { StyledH1, StyledButton } from '../Styles/Style';
 
 import RestaurantList from './RestaurantList';
+import { connect } from 'react-redux';
 
 const UserDashboard = props => {
-
   return(
     <div>
       <StyledH1>Welcome to the User Dashboard!</StyledH1>
