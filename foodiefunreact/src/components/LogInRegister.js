@@ -37,7 +37,7 @@ const LogInRegister = props => {
       .then(res => {
         localStorage.setItem('token', res.data.token);
         console.log('user_id in LogInRegister: ', res.data.user_id);
-        setUserID(res.data.id);
+        setUserID(res.data.user_id);
         setIsFetching(false);
         props.history.push('/dashboard')
       })

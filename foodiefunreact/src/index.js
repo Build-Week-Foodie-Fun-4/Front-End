@@ -8,9 +8,13 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
-import reducer from './reducers';
+import allReducer from './reducers';
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(
+  allReducer, 
+  window._REDUX_DEVTOOLS_EXTENSION_ && window._REDUX_DEVTOOLS_EXTENSION_(),
+  applyMiddleware(thunk)
+);
 
 ReactDOM.render(
   <Provider store={store}>
