@@ -4,8 +4,8 @@ import {StyledFormDiv, StyledInput, StyledButton, StyledLabel, StyledH1} from '.
 
 const AddNewRestaurant = props => {
   const [ restaurantInfo, setRestaurantInfo ] = useState({
-    user_id: 5,
-    name: '',
+    user_id: 3,
+    restaurant_name: '',
     cuisine: '',
     street_address: '',
     city: '',
@@ -22,7 +22,7 @@ const AddNewRestaurant = props => {
     event.preventDefault();
 
     axiosWithAuth()
-    .post(`user/5/restaurants`, restaurantInfo)
+    .post(`user/3/restaurants`, restaurantInfo)
     .then(res => {
       console.log('Response in AddNewRestaurant: ', res)
       props.history.push('/dashboard')
@@ -41,13 +41,13 @@ const AddNewRestaurant = props => {
     <StyledFormDiv>
       <StyledH1>Add a New Restaurant!</StyledH1>
       <form onSubmit={submitNewRestaurant}>
-        <StyledLabel htmlFor='name'>Restaurant Name:</StyledLabel>
+        <StyledLabel htmlFor='restaurant_name'>Restaurant Name:</StyledLabel>
         <StyledInput 
-          id='name'
+          id='restaurant_name'
           type='text'
-          name='name'
+          name='restaurant_name'
           placeholder='Restaurant Name'
-          value={restaurantInfo.name}
+          value={restaurantInfo.restaurant_name}
           onChange={handleChange}
         />
         <StyledLabel htmlFor='cuisine'>Cuisine:</StyledLabel>

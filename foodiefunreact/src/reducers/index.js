@@ -1,5 +1,14 @@
 // Index for reducers
 
-import reducer from './restaurantReducer';
+import userReducer from './userReducer';
+import restaurantReducer from './restaurantReducer';
+import menuItemReducer from './menuItemReducer';
+import { combineReducers } from 'redux';
 
-export default reducer;
+const rootReducer = combineReducers({
+  restaurantReducer,
+  userReducer,
+  menuItemReducer
+})
+
+export default rootReducer;
