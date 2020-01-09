@@ -1,13 +1,13 @@
 import axiosWithAuth from '../components/axiosWithAuth';
 
-import { useDispatch } from 'react-redux';
+import {
+  FETCH_RESTAURANT_START,
+  FETCH_RESTAURANT_SUCCESS,
+  FETCH_RESTAURANT_FAILURE
+} from '../actions';
 
-export const FETCH_RESTAURANT_START = 'FETCH_RESTAURANT_START';
-export const FETCH_RESTAURANT_SUCCESS = 'FETCH_RESTAURANT_SUCCESS';
-export const FETCH_RESTAURANT_FAILURE = 'FETCH_RESTAURANT_ FAILURE';
-
-export const getRestaurants = () => {
-  const dispatch = useDispatch();
+export const getRestaurants = () => dispatch => {
+  // const dispatch = useDispatch();
   dispatch({ type: FETCH_RESTAURANT_START })
   axiosWithAuth
     .get('user/3/restaurants')
@@ -16,6 +16,7 @@ export const getRestaurants = () => {
       console.log('fetch result in restaurantActions: ', response)
     })
     .catch(error => {
+      console.log('error in getRestaurants in restaurantActions:', error);
       dispatch({ type: FETCH_RESTAURANT_FAILURE, payload: error.response })
     })
 }

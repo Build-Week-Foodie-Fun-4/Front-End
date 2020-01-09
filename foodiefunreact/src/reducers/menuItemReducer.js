@@ -1,7 +1,7 @@
 import { 
   FETCH_MENUITEM_START,
-  FETCH_SUCCESS,
-  FETCH_FAIL,
+  FETCH_MENUITEM_SUCCESS,
+  FETCH_MENUITEM_FAIL,
   ADD_MENUITEM
 } from '../actions'
 
@@ -19,24 +19,24 @@ const menuItemReducer = (state = initialState, action) => {
         ...state,
         isFetching: true
       };
-    case FETCH_SUCCESS: 
+    case FETCH_MENUITEM_SUCCESS: 
       return {
         ...state,
         isFetching: false,
         menuItems: action.payload
       };
-    case FETCH_FAIL:
+    case FETCH_MENUITEM_FAIL:
       return {
         ...state,
         error: 'FETCH FAIL MENU ITEM'
       };
     case ADD_MENUITEM:
       const newMenuItem = {
-        restaurantID = action.payload.restaurant_id,
-        menuItemName = action.payload.item_name,
-        menuItemPrice = action.payload.price,
-        menuItemReview = action.payload.review,
-        menuItemRating = action.payload.rating
+        restaurantID: action.payload.restaurant_id,
+        menuItemName: action.payload.item_name,
+        menuItemPrice: action.payload.price,
+        menuItemReview: action.payload.review,
+        menuItemRating: action.payload.rating
       }
       return {
         ...state,
