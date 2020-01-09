@@ -1,7 +1,7 @@
 // put userID and loggedIn into redux with action creator and reducer
 
 import axiosWithAuth from '../components/axiosWithAuth';
-import { LOGIN_SUCCESS, LOGIN_FAIL } from './types';
+import { LOGIN_SUCCESS, LOGIN_FAIL, REGISTER_SUCCESS, REGISTER_FAIL } from './types';
 
 export const login = (credentials, history) => dispatch => {
   axiosWithAuth()
@@ -14,3 +14,15 @@ export const login = (credentials, history) => dispatch => {
     })
     .catch(error => dispatch({ type: LOGIN_FAIL, payload: error}))
 };
+
+export const register = (credentials, history) => dispatch => {
+  axiosWithAuth()
+    .post('/auth/register', credentials)
+    .then(res => {
+      localStorage.setItem('token', res.data.token);
+      dispatch({ type: REGISTER_SUCCESS, payload: res });
+      history.push('/dashboard');
+      console.log('response in userActions register: ', res)
+    })
+    .catch(error => dispatch({ type: REGISTER_FAIL, payload: error}))
+}

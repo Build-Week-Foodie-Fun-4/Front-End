@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, LOGIN_FAIL } from './../actions';
+import { LOGIN_SUCCESS, LOGIN_FAIL, REGISTER_SUCCESS, REGISTER_FAIL } from './../actions';
 
 const initialState = {
   token: localStorage.getItem('token'),
@@ -16,6 +16,20 @@ const userReducer = (state = initialState, action) => {
         isLoading: false
       }
     case LOGIN_FAIL:
+      return {
+        ...state,
+        token: null,
+        isLoggedIn: false,
+        isLoading: false
+      }
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        isLoggedIn: true,
+        token: action.payload,
+        isLoading: false
+      }
+    case REGISTER_FAIL:
       return {
         ...state,
         token: null,

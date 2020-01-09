@@ -3,7 +3,7 @@ import axiosWithAuth from './axiosWithAuth';
 import {StyledFormDiv, StyledInput, StyledButton, StyledLabel, StyledH1} from '../Styles/Style';
 
 import { connect } from 'react-redux';
-import { login } from './../actions';
+import { login, register } from './../actions';
 
 const LogInRegister = props => {
   // const [ credentials, setCredentials ] = useState({
@@ -86,6 +86,11 @@ const LogInRegister = props => {
     props.login(credentials, props.history);
   }
 
+  const handleRegister = event => {
+    event.preventDefault();
+    props.register(credentials, props.history)
+  }
+
   return(
     <StyledFormDiv>
       <StyledH1>Already registered?  Log in here!</StyledH1>
@@ -112,8 +117,8 @@ const LogInRegister = props => {
         <StyledButton>Log In</StyledButton>
       </form>
 
-      {/* <StyledH1>New user?  Register with your info here!</StyledH1>
-      <form onSubmit={register}>
+      <StyledH1>New user?  Register with your info here!</StyledH1>
+      <form onSubmit={handleRegister}>
         <StyledLabel htmlFor='regUserName'>Username:</StyledLabel>
         <StyledInput
           id='regUserName'
@@ -161,7 +166,7 @@ const LogInRegister = props => {
         />
         <br></br>
         <StyledButton>Register</StyledButton>
-      </form> */}
+      </form>
     </StyledFormDiv>
   )
 }
@@ -175,4 +180,4 @@ const LogInRegister = props => {
 // export default connect(
 //   mapStateToProps
 // )(LogInRegister);
-export default connect(null, { login })(LogInRegister);
+export default connect(null, { login, register })(LogInRegister);

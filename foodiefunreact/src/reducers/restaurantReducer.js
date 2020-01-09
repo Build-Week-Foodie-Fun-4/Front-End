@@ -21,7 +21,7 @@ const restaurantReducer = (state = initialState, action) => {
       return {
         ...state,
         restaurant: action.payload,
-        ifFetching: false,
+        isFetching: false,
         error: ''
       }
     case FETCH_RESTAURANT_FAILURE:
