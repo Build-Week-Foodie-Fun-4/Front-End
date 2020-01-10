@@ -24,7 +24,7 @@ const RestaurantList = (props) => {
             <StyledCard className='restaurantCard'>
               <StyledText key={restaurant.restaurant_id}>Name: {restaurant.restaurant_name}</StyledText>
               <StyledText key={restaurant.restaurant_id}>Cuisine: {restaurant.cuisine}</StyledText>
-              <StyledText key={restaurant.restaurant_id}>ID: {restaurant.id}</StyledText>
+              <StyledText key={restaurant.restaurant_id}>City: {restaurant.city}</StyledText>
             </StyledCard>
           )
         })}
