@@ -1,5 +1,3 @@
-// put userID and loggedIn into redux with action creator and reducer
-
 import axiosWithAuth from '../components/axiosWithAuth';
 import { LOGIN_SUCCESS, LOGIN_FAIL, REGISTER_SUCCESS, REGISTER_FAIL } from './types';
 

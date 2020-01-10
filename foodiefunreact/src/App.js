@@ -8,9 +8,7 @@ import PrivateRoute from './components/PrivateRoute';
 import AddNewRestaurant from './components/AddNewRestaurant';
 import RestaurantList from './components/RestaurantList';
 
-import { connect } from 'react-redux';
-
-function App(props) {
+function App() {
   return (
     <Router>
       <div className="App">
@@ -24,12 +22,4 @@ function App(props) {
   );
 }
 
-// export default App;
-
-const mapStateToProps = state => {
-  return {
-    // isLoggedIn: state.auth.isLoggedIn
-  }
-}
-
-export default connect(mapStateToProps, {})(App);
+export default App;

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { StyledH1, StyledText, StyledCard, StyledContainer, StyledButton } from '../Styles/Style';
+import { StyledH1, StyledText, StyledCard, StyledContainer } from '../Styles/Style';
 
 import { getRestaurants } from './../actions/restaurantActions';
 
@@ -11,23 +11,27 @@ const RestaurantList = (props) => {
     props.getRestaurants();
   }, []);
   console.log('props in RestaurantList: ', props)
+
+  const restaurantsArray = props.restaurants.restaurantReducer.restaurants;
+  console.log('restaurantsArray: ', restaurantsArray);
   
   return(
     <div>
       <StyledH1>Your Restaurants:</StyledH1>
-
-      {/* <StyledContainer className='container'>
-      <StyledCard className='restaurantCard'>
-        <StyledText>Name: Adam's Burgers</StyledText>
-        <StyledText>Cuisine: Burgers</StyledText>
-      </StyledCard>
-      </StyledContainer> */}
-      
+      <StyledContainer>
+        {restaurantsArray.map(restaurant => {
+          return(
+            <StyledCard className='restaurantCard'>
+              <StyledText key={restaurant.restaurant_id}>Name: {restaurant.restaurant_name}</StyledText>
+              <StyledText key={restaurant.restaurant_id}>Cuisine: {restaurant.cuisine}</StyledText>
+              <StyledText key={restaurant.restaurant_id}>ID: {restaurant.id}</StyledText>
+            </StyledCard>
+          )
+        })}
+      </StyledContainer>
     </div>
   )
 }
-
-// export default RestaurantList;
 
 const mapStateToProps = state => {
   return {

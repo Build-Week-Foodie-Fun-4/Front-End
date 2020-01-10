@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-// import axiosWithAuth from './axiosWithAuth';
+import React, { useState } from 'react';
 import {StyledFormDiv, StyledInput, StyledButton, StyledLabel, StyledH1} from '../Styles/Style';
 
 import { connect } from 'react-redux';

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import axiosWithAuth from './axiosWithAuth';
 import {StyledFormDiv, StyledInput, StyledButton, StyledLabel, StyledH1} from '../Styles/Style';
 
 import { connect } from 'react-redux';
@@ -14,11 +13,6 @@ const AddNewRestaurant = props => {
     city: '',
     state: '',
     zip: '',
-    // restaurantPhone: '',
-    // restaurantURL: '',
-    // restaurantHours: '',
-    // restaurantOverallRating: '',
-    // restaurantPhoto: ''
   });
 
   const handleChange = event => {
