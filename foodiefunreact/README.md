@@ -1,3 +1,7 @@
+Thank you for viewing FoodieFun4!
+[The marketing page can be seen here](https://foodiefun4.netlify.com/).
+[The deployed front-end webstie can be seen here](https://foodie-fun-4.firebaseapp.com/).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

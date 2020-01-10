@@ -3,7 +3,8 @@ import { LOGIN_SUCCESS, LOGIN_FAIL, REGISTER_SUCCESS, REGISTER_FAIL } from './..
 const initialState = {
   token: localStorage.getItem('token'),
   isLoggedIn: false,
-  isLoading: false
+  isLoading: false,
+  user_id: ''
 }
 
 const userReducer = (state = initialState, action) => {
@@ -13,7 +14,9 @@ const userReducer = (state = initialState, action) => {
         ...state,
         isLoggedIn: true,
         token: action.payload,
-        isLoading: false
+        isLoading: false,
+        user_id: action.payload.user_id,
+        username: action.payload.username
       }
     case LOGIN_FAIL:
       return {

@@ -52,9 +52,10 @@ export const StyledH1 = styled.p`
 `;
 
 export const StyledCard = styled.div`
-    border: 5px dashed gray;
+    border: 5px solid gray;
     width: 20%;
     background: lightgray;
+    margin: 1rem;
     &:hover
     {
         background: gold;
